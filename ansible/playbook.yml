@@ -1,4 +1,4 @@
-- hosts: webserver
+- hosts: my-monitor-server
   tasks:
     - name: Copy files
       copy:
