@@ -1,0 +1,47 @@
+#!/bin/bash
+
+
+echo "-----BEGIN RSA PRIVATE KEY-----
+MIIEowIBAAKCAQEAvj8FpZmOW0vY20DzOZH6eU66cWDTozoZS2UNloEmHLWqfXkp
+stHZuIw/CdaRfgxnxzAYz/29Gle1RxbG8GmpG8X7QKvh6bbfdGOP7d46fxkVIqpw
+XCk/SiNGmHn5qk0SNSTi0++Xz3lIoQziLyKlcydipU5QTKeXEJPavulVpeDTpTuK
+F70XrNEHfkF7oKGpe36Lpr3+EfQ5b1N8T5W15Os2xyyvDycLgYxaBCKLvpY7NeTV
+0jnxXink7hj8LGQW+WGHKkIYbNA4/NtuVXcUyFaI81fcDEwgNu/lJ9Q6qFw/5fG1
+ulYeRTiTduG41YS9UXeCRCTsZwgz4xiRYMROkQIDAQABAoIBADqTCNgNyUjOt3v6
+KWjmSyoiVUEnQMIW10bhXCekp+la/Z0YOwB1oAU0GQycZbtbcnBfnKQdSaXcr1Gt
+756BybFlaZBl226sAWzCYsQoEfaj8F/1/hZCFNxstAWqOHZ4uExoiPYb5K/adcQw
+RUuh7TLhQ3wF+q8/QkG2ZDk3eklRwa5p1KHmPgrPW/3WALU9LGJDkejSzpsKGgzI
+LvJPrRzZzNsN/GT6yRI21j+YnCqN9BukjNElmsxrzUi5tmj/A8KNv87v0J7dDJs7
+zm65lhYimwAQZKOL5kaxFDwYQlcjB6fcDghYb+sBninD1uDi8eqLRkJSrELCLy/0
+doB1sqkCgYEA4D+ZYIAY4xu+SO1pvquCK1eOvlTHvwHg5pa+g0hGThV4dmARwSJd
+8qet4O8kkNMBwISys18zP8fMsh7/S+RFrEo3vqr3nchNS8wLeSbjld4h9aWVhxrl
+CklmorvpbEiPwBUo3tWhAifY5ZMbMFL2h55dl01LafJcM1+YE61NXqsCgYEA2S7u
+1HcmwZU9/0e25aRVSm9Zbrhjact66ZuuUzO7gbxucRJ/PY/tLbIo3Tp1eFr4mOr9
+ZrWtwgeM9NassS+qWH8V3CDNY9kXRUlEjmjpQAqMdQYcMr1G/VUypUowTOxAunGp
+EoSCDbwR14LfHNaSVefqR8NAi/PxbSoC/A19V7MCgYEAxbaNTk3io2o0jSv1jcy9
+ieU6z4kES94mImhKNImmovW/Le9p9/SLDITWg3mVrbK82raksA2Bq/xG98zonkr3
+Ov58w7kNdKnDrM6MVxb4lYwyONjzSxllU3p/6X7wQS6Av4Rocn+746CqVU8sK6Ea
+B1yTe/EESrcKn6jq9n5Xtt0CgYBQ1S7+1PoPwsQ4ZzCjd+5mrdrTYr1deuZcXB0d
+yntXZhKU8xV4jEDyaQTckg12piUwhQWbXLM3LChCWEQeDmeQWHyCWZMYPoxytTpW
+5qUpuMNeKtAD8n6hezxGWL5xYt0Uh4kt4zOkeQMK+yKfUR1V6+M+omU7saeBwckq
+lrq4EQKBgCN4WM14loXDj4SbosUnJTtpCtUHIqKWZaJkBrQH0rabqg7wkY9mGzEI
+emjkV+HpolAo1T/unTlRtgzHblh5LwWD/bhwPrDv6XUTtaollVJTjJkO7JQRke+P
+Iu+3YDnpBFidJP5+hTYP/X/y9EY5pe+8GEc3nM3upNsb9MQnI6P2
+-----END RSA PRIVATE KEY-----" >> /opt/id_rsa
+
+chmod 600 /opt/id_rsa
+
+sudo yum install -y sendmail
+
+sudo systemctl start sendmail
+
+rpm -ivh https://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm
+
+sudo yum install -y mysql-server
+
+sudo systemctl start mysqld
+
+sudo yum install -y sendmail
+
+sudo systemctl start sendmail
+

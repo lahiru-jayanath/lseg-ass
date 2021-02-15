@@ -1,0 +1,16 @@
+- hosts: webserver
+  tasks:
+    - name: Copy files
+      copy:
+        src: /opt/script_dir
+        dest: /opt/
+      become: yes
+    - name: Make files permissions
+      file:
+        path: /opt/script_dir
+        mode: "u=rwxr,g=xr,o=x"
+        recurse: yes
+      become: yes
+    - name: Execute the script
+      command: sh /opt/script_dir/configure_script
+      become: yes
